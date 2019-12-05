@@ -1,12 +1,7 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {Provider} from 'react-redux';
+import store from './redux';
+import {Root} from 'native-base';
 import {Icon} from 'native-base';
 
 import {createSwitchNavigator, createAppContainer} from 'react-navigation';
@@ -23,7 +18,13 @@ import welcomeScreen from './screens/WelcomeScreen';
 
 export default class App extends React.Component {
   render() {
-    return <Appcontainer />;
+    return (
+      <Provider store={store}>
+        <Root>
+          <Appcontainer />
+        </Root>
+      </Provider>
+    );
   }
 }
 
@@ -71,7 +72,7 @@ const AppDrawerNavigator = createDrawerNavigator({
 
 const AppswitchNavigator = createSwitchNavigator({
   welcomeScreen: {screen: welcomeScreen},
-  SignUp:{screen:SignUp},
+  SignUp: {screen: SignUp},
   Login: {screen: Login},
   HomeScreen: {screen: HomeScreen},
   Dashboard: {screen: AppDrawerNavigator},

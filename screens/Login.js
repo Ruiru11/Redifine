@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 import PropTypes from 'prop-types';
-// import { login } from "../redux/actions/auth/login";
-// import { Button } from "react-native";
-// import { getToken } from "../utils/keys";
+import { login } from "../redux/actions/auth/login";
+import { Button } from "react-native";
+import { getToken } from "../utils/keys";
 
 import {
   StyleSheet,
@@ -100,8 +100,8 @@ class Login extends Component {
   };
 
   render() {
-    // const {navigation, tokenData} = this.props;
-    // console.log('logindata', tokenData);
+    const {navigation, tokenData} = this.props;
+    console.log('logindata', tokenData);
     const {passwordError, emailError, passworHidden} = this.state;
     return (
       <SafeAreaView style={styles.container}>
@@ -148,7 +148,7 @@ class Login extends Component {
                   {emailError}
                 </Label>
               ) : null}
-              <Item style={{borderBottomColor: 'blue'}}>
+              <Item style={{borderBottomColor: '#57098A'}}>
                 <TextInput
                   style={styles.input}
                   onBlur={this.validatePassword}
@@ -282,13 +282,12 @@ const styles = StyleSheet.create({
   },
 });
 
-// const mapStateToProps = state => ({
-//   login: state.login,
-//   tokenData: state.loadingData,
-// });
+const mapStateToProps = state => ({
+  login: state.login,
+  tokenData: state.loadingData,
+});
 
-// const mapDispatchToProps = {results: login};
+const mapDispatchToProps = {results: login};
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
 
-export default Login;

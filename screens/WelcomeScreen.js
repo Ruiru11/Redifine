@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Bubbles, DoubleBounce, Bars, Pulse} from 'react-native-loader';
-// import { getToken } from "../utils/keys";
+import {Bubbles} from 'react-native-loader';
+import { getToken } from "../utils/keys";
 import {
   StyleSheet,
   Text,
@@ -31,7 +31,7 @@ class welcomeScreen extends Component {
     setTimeout(() => {
       this.setState({loading: false});
 
-      navigate(token ? 'Dashboard' : 'Login');
+      navigate(token ? 'HomeScreen' : 'Login');
     }, 4000);
   };
   render() {
@@ -53,10 +53,10 @@ class welcomeScreen extends Component {
               </View>
             ) : null}
             <View>
-              <Image
+              {/* <Image
                 style={styles.logo}
                 source={require('../assets/rip.png')}
-              />
+              /> */}
             </View>
           </View>
         </TouchableWithoutFeedback>

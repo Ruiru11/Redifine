@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 import PropTypes from 'prop-types';
-// import { signup } from "../redux/actions/auth/signup";
+import { signup } from "../redux/actions/auth/signup";
 
 import {
   StyleSheet,
@@ -350,15 +350,14 @@ const styles = StyleSheet.create({
   },
 });
 
-// const mapStateToProps = state => ({
-//   signup: state.signup
-// });
+const mapStateToProps = state => ({
+  signup: state.signup
+});
 
-// const mapDispatchToProps = { results: signup };
+const mapDispatchToProps = { results: signup };
 
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Sigup);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignUp);
 
-export default SignUp;
